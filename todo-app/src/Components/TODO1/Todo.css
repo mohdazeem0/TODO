@@ -1,0 +1,22 @@
+.home{
+    padding: 20px;
+    margin: 20px;
+    background-color: #d6f1ff !important;
+}
+.todolist{
+    background-color: rgb(110, 187, 255);
+    margin: 10px;
+    padding: 10px;
+    color: white;
+}
+.addtodo{
+    background-color: rgb(110, 187, 255);;
+    margin: 10px;
+    padding: 10px;
+    color: white;
+}
+.todoitem{
+    background-color: aqua;
+    padding: 10px;
+    margin: 10px;
+}
