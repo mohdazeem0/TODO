@@ -2,11 +2,12 @@ import React from "react";
 import { TodoItem } from "./TodoItem";
 import { Card } from "react-bootstrap";
 
-export const TodoList = () => {
+export const TodoList = ({ todoitems }) => {
   return (
-    <Card>
-      <TodoItem />
-      <TodoItem />
+    <Card className="todolist">
+      {todoitems.map((item) => (
+        <TodoItem item={item} />
+      ))}
     </Card>
   );
 };

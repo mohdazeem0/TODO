@@ -1,12 +1,18 @@
-import React from "react";
-import { Card, Row, Col } from "react-bootstrap";
+import React, { useState } from "react";
+import { Card, Row, Col, Form } from "react-bootstrap";
 
-export const TodoItem = () => {
+export const TodoItem = ({ item }) => {
+  const [check, setCheck] = useState(false);
   return (
     <Card className="todoitem">
       <Row>
-        <Col md={2}></Col>
-        <Col md={10}></Col>
+        <Col md={2}>
+          <Form.Check onClick={() => setCheck(!check)}></Form.Check>
+        </Col>
+        <Col md={10}>
+          {" "}
+          <Form.Label>{check ? <del>{item}</del> : item} </Form.Label>{" "}
+        </Col>
       </Row>
     </Card>
   );
