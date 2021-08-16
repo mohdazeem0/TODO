@@ -4,6 +4,7 @@ import { AddTodo } from "./AddTodo";
 import { Card, Row, Col } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Todo.css";
+import { TodoItem } from "./TodoItem";
 
 export const HomeTodo = () => {
   const [todoitems, setTodoItems] = useState([
@@ -14,16 +15,16 @@ export const HomeTodo = () => {
   const handleAdd = (newtodo) => {
     setTodoItems([...todoitems, newtodo]);
   };
+  const handleDelete = (curritem) => {
+    const filtered = todoitems.filter((item) => item !== curritem);
+    setTodoItems([...filtered]);
+  };
   return (
     <Card className="home">
-      <Row>
-        <Col>
-          <AddTodo handleAdd={handleAdd} />
-        </Col>
-        <Col>
-          <TodoList todoitems={todoitems} />
-        </Col>
-      </Row>
+      <h2>ADD TODO</h2>
+      <AddTodo handleAdd={handleAdd} />
+      <h2>TODO LIST</h2>
+      <TodoList handleDelete={handleDelete} todoitems={todoitems} />
     </Card>
   );
 };

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { Card, Row, Col, Form } from "react-bootstrap";
+import { Card, Row, Col, Form, Button } from "react-bootstrap";
 
-export const TodoItem = ({ item }) => {
+export const TodoItem = ({ item, handleDelete }) => {
   const [check, setCheck] = useState(false);
   return (
     <Card className="todoitem">
@@ -11,7 +11,10 @@ export const TodoItem = ({ item }) => {
         </Col>
         <Col md={10}>
           {" "}
-          <Form.Label>{check ? <del>{item}</del> : item} </Form.Label>{" "}
+          <Form.Label>{check ? <del>{item}</del> : item} </Form.Label>
+          <Button className="removebtn" onClick={() => handleDelete(item)}>
+            remove
+          </Button>
         </Col>
       </Row>
     </Card>
